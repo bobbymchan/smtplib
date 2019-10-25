@@ -1,0 +1,11 @@
+import os, smtplib
+
+password = os.environ.get('--omitted--') # secure method to hide password instead of incorporating directly in code.
+
+conn = smtplib.SMTP('smtp.gmail.com', 587) # call smtp function
+type(conn)
+conn.ehlo() # to connect to smtp server
+conn.starttls() # start tls encryption
+conn.login('--your-email-address', password) #connect to email
+conn.sendmail('--your-email-address','--destination-email--address','Subject: So long...\n\nDear Winnie the Pooth,\n\nHow are you doing? it has been awhile!\n\nTake Care Now,\n\nPiglet')
+conn.quit() # Quit connection
